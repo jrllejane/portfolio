@@ -42,3 +42,24 @@
   align-items: center;
 }
 
+/* Lanyard wrapper styles */
+.about-me .lanyard-wrapper {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  pointer-events: auto !important;
+}
+
+/* Target the Canvas inside the wrapper */
+.about-me .lanyard-wrapper > canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+

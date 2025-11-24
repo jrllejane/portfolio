@@ -15,7 +15,7 @@ import './Lanyard.css';
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
-export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true, cardTexture }) {
+export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true, cardTexture, initialXOffset = 0 }) {
   return (
     <div className="lanyard-wrapper">
       <Canvas
@@ -25,7 +25,7 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
       >
         <ambientLight intensity={Math.PI} />
         <Physics gravity={gravity} timeStep={1 / 60}>
-          <Band cardTexture={cardTexture} />
+          <Band cardTexture={cardTexture} initialXOffset={initialXOffset} />
         </Physics>
         <Environment blur={0.75}>
           <Lightformer
@@ -62,7 +62,7 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
   );
 }
 
-function Band({ maxSpeed = 50, minSpeed = 0, cardTexture }) {
+function Band({ maxSpeed = 50, minSpeed = 0, cardTexture, initialXOffset = 0 }) {
   const band = useRef(),
     fixed = useRef(),
     j1 = useRef(),
@@ -192,7 +192,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, cardTexture }) {
 
   return (
     <>
-      <group position={[0, 4, 0]}>
+      <group position={[initialXOffset, 4, 0]}>
         <RigidBody ref={fixed} {...segmentProps} type="fixed" />
         <RigidBody position={[0.5, 0, 0]} ref={j1} {...segmentProps}>
           <BallCollider args={[0.1]} />

@@ -10,8 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/about" element={<AboutMe />} />
+        <Route path="/" element={<AboutMe />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/ui-designs" element={<UIDesigns />} />

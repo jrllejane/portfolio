@@ -2,6 +2,8 @@ import './AboutMe.css'
 import computerBg from '../assets/computerbg.png'
 import Folder from '../components/Folder'
 import DecryptedText from '../components/DecryptedText'
+import Lanyard from '../components/Lanyard'
+import idImage from '../assets/lanyard/ID Card.png'
 
 function AboutMe() {
   const folderItems = [
@@ -21,12 +23,21 @@ function AboutMe() {
 
   return (
     <div className="about-me" style={{ backgroundImage: `url(${computerBg})` }}>
+      {/* Lanyard Component */}
+      <Lanyard 
+        position={[0, 0, 20]} 
+        gravity={[0, -40, 0]} 
+        cardTexture={idImage}
+        initialXOffset={5}
+      />
+      
       <div className="decrypted-text-container">
         <DecryptedText 
           text="Welcome to My Portfolio" 
           speed={100}
           maxIterations={20}
-          animateOn="view"
+          sequential={true}
+          animateOn="both"
           revealDirection="center"
           className="decrypted-text"
           parentClassName="decrypted-text-parent"

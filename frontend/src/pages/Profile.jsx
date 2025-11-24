@@ -13,19 +13,19 @@ function Profile() {
       onClick: () => window.location.href = '/' 
     },
     { 
-      icon: <div style={{ fontSize: '18px', color: '#fff' }}>📁</div>, 
-      label: 'About', 
-      onClick: () => window.location.href = '/about' 
-    },
-    { 
       icon: <div style={{ fontSize: '18px', color: '#fff' }}>👤</div>, 
       label: 'Profile', 
       onClick: () => window.location.href = '/profile' 
     },
     { 
-      icon: <div style={{ fontSize: '18px', color: '#fff' }}>⚙️</div>, 
-      label: 'Settings', 
-      onClick: () => alert('Settings!') 
+      icon: <div style={{ fontSize: '18px', color: '#fff' }}>📁</div>, 
+      label: 'Projects', 
+      onClick: () => window.location.href = '/projects' 
+    },
+    { 
+      icon: <div style={{ fontSize: '18px', color: '#fff' }}>🎨</div>, 
+      label: 'UI Designs', 
+      onClick: () => window.location.href = '/ui-designs' 
     },
   ];
 
@@ -39,16 +39,57 @@ function Profile() {
       {/* Section 1: Header/Introduction */}
       <section style={{
         minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
+        position: 'relative',
         padding: '20px',
         backgroundImage: `url(${profileBg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}>
+        <a
+          href="https://drive.google.com/file/d/1d_QpgVG7DwxeOwjLvnbGNjNU5-Lu6zqI/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            position: 'absolute',
+            top: '40px',
+            right: '40px',
+            padding: '16px 36px',
+            background: 'linear-gradient(135deg, #9333ea 0%, #ec4899 100%)',
+            color: '#fff',
+            textDecoration: 'none',
+            borderRadius: '12px',
+            fontWeight: '600',
+            fontSize: '1.1rem',
+            letterSpacing: '0.5px',
+            textAlign: 'center',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+            boxShadow: '0 8px 20px rgba(147, 51, 234, 0.4), 0 4px 8px rgba(0, 0, 0, 0.2)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
+            backdropFilter: 'blur(10px)',
+            cursor: 'pointer'
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.transform = 'translateY(-4px) scale(1.05)';
+            e.target.style.boxShadow = '0 12px 28px rgba(147, 51, 234, 0.5), 0 6px 12px rgba(0, 0, 0, 0.3)';
+            e.target.style.background = 'linear-gradient(135deg, #a855f7 0%, #f472b6 100%)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.transform = 'translateY(0) scale(1)';
+            e.target.style.boxShadow = '0 8px 20px rgba(147, 51, 234, 0.4), 0 4px 8px rgba(0, 0, 0, 0.2)';
+            e.target.style.background = 'linear-gradient(135deg, #9333ea 0%, #ec4899 100%)';
+          }}
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Resume
+        </a>
       </section>
 
       {/* Section 2: About Me */}
